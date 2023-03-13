@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<FoodBox.Core.Models.Employee> SignInManager
+@inject UserManager<FoodBox.Core.Models.Employee> UserManager
+
+<!--begin::Header-->
+<div id="kt_header" class="header header-fixed">
+	<!--begin::Container-->
+	<div class="container-fluid d-flex align-items-stretch justify-content-between">
+		<!--begin::Header Menu Wrapper-->
+		<div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+			<!--begin::Header Menu-->
+			<div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+				<!--begin::Header Nav-->
+				<!--end::Header Nav-->
+			</div>
+			<!--end::Header Menu-->
+		</div>
+		<!--end::Header Menu Wrapper-->
+		<!--begin::Topbar-->
+		<div class="topbar">
+			<!--begin::User-->
+			<div class="topbar-item">
+				@if (SignInManager.IsSignedIn(User))
+				{
+					var loginUser = await UserManager.GetUserAsync(User);
+				
+				<div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
+					<span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Merhaba,</span>
+					@*<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">@loginUser.FirstName @loginUser.LastName</span>*@
+				</div>
+
+				}
+				<a href="/Users/Logout/" class="btn btn-danger">Çıkış Yap</a>
+			</div>
+			<!--end::User-->
+		</div>
+		<!--end::Topbar-->
+	</div>
+	<!--end::Container-->
+</div>
+<!--end::Header-->
