@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.SqlServer.Management.SqlParser.Metadata;
 namespace FoodBox.Web.Controllers
 {
-    public class UsersController : BaseProcess<Employee, IEmployeeService>
+    public class UserController : BaseProcess<Employee, IEmployeeService>
 	{
 		private readonly UserManager<Employee> _userManager;
 		private readonly SignInManager<Employee> _signInManager;
 		private readonly IEmployeeService _employeeService;
 		private readonly RoleManager<IdentityRole> _roleManager;
 
-		public UsersController(UserManager<Employee> userManager, SignInManager<Employee> signInManager, IEmployeeService employeeService, RoleManager<IdentityRole> roleManager)
+		public UserController(UserManager<Employee> userManager, SignInManager<Employee> signInManager, IEmployeeService employeeService, RoleManager<IdentityRole> roleManager)
 			: base(employeeService)
 		{
 			_userManager = userManager;

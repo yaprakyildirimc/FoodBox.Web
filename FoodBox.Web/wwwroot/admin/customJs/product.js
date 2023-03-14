@@ -35,7 +35,7 @@ $(document).ready(function () {
         "processing": "true",
         "info": "false",
         "language": {
-            "processing": "Lütfen beyleyin...",
+            "processing": "Lütfen bekleyin...",
             //"lengthMenu": "Sayfada _MENU_ kayıt gösteriliyor",
             "zeroRecords": "Eşleşen kayıt bulunamadı",
             "info": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
@@ -127,15 +127,15 @@ function Item() {
 
 
 function addItem() {
-    $("#saveBtn").css("display", "inline-block");
-    $("#updateBtn").css("display", "none");
+    //$("#saveBtn").css("display", "inline-block");
+    //$("#updateBtn").css("display", "none");
     var data = $("#sackSaveForm").serializeArray();
 
     //data.find(x => x.name == "path").value = "/Content/assets/site/uploads/" + data.find(x => x.name == "name").value + "/";
 
     $.ajax({
         type: "POST",
-        url: "/Sack/Create",
+        url: "/Product/Create",
         dataType: "json",
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         data: data,
@@ -148,6 +148,7 @@ function addItem() {
             }).show();
             $("#sackSaveModel").modal("hide");
             itemList.search('').columns().search().draw();
+            clearForm("sackSaveForm");
         }
     });
 }
@@ -163,7 +164,7 @@ function deleteItem(id) {
             if (result.value) {
                 $.ajax({
                     type: "GET",
-                    url: '/Sack/Delete',
+                    url: '/Product/Delete',
                     data: { Id: id },
                     success: function (data) {
                         if (data) {
@@ -196,15 +197,15 @@ function deleteItem(id) {
 }
 
 function editItem(itemId) {
-    clearForm("sackSaveForm")
+    clearForm("sackSaveForm");
 
-    $("#saveBtn").css("display", "none");
-    $("#updateBtn").css("display", "inline-block");
+    //$("#saveBtn").css("display", "none");
+    //$("#updateBtn").css("display", "inline-block");
     $("#sackSaveModel").modal("show");
 
     $.ajax({
         type: "GET",
-        url:  '/sack/GetById',
+        url:  '/Product/GetById',
         data: { Id: itemId },
         success: function (data) {
             var ser = $('#sackSaveForm').serializeArray();
@@ -223,7 +224,7 @@ function updateItem() {
 
     $.ajax({
         type: "POST",
-        url: "/Sack/Update",
+        url: "/Product/Update",
         dataType: "json",
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         data: data,
@@ -254,6 +255,7 @@ function showMessage(text, type) {
 }
 
 function reverseModal() {
+    clearForm("sackSaveForm");
     $("#btnSave").show();
     $("#btnUpdate").hide();
 }

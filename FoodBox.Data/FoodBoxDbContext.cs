@@ -19,6 +19,7 @@ namespace FoodBox.Data
         public DbSet<Product>Products { get; set;}  
         public DbSet<Store> Stores { get; set;}
         public DbSet<StoreProduct> StoreProducts { get; set;}
+        public DbSet<StoreUser> StoreUsers { get; set;}
 
         public FoodBoxDbContext(DbContextOptions<FoodBoxDbContext> options)
             : base(options)

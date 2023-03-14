@@ -1,0 +1,112 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    Layout = "_Layout";
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+
+@section Scripts
+    {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/admin/customJs/store.js"></script>
+}
+
+<input type="hidden" id="path" value="store" data-columnTitle="storeName,address,phone,id" />
+<!--begin::Entry-->
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container-fluid">
+
+        <!--begin::Dashboard-->
+        <!--begin::Row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <!--begin::Advance Table Widget 4-->
+                <div class="card card-custom card-stretch gutter-b">
+                    <!--begin::Header-->
+                    <div class="card-header border-0 py-5">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="card-label font-weight-bolder text-dark">Şubeler</span>
+                            <br />
+                            <button style="margin-left:10px;" type="button" class="btn btn-success" data-toggle="modal" data-target="#stationSaveModel" onclick="reverseModal()">Şube Ekle</button>
+                        </h3>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body pt-0 pb-3">
+                        <div class="tab-content">
+                            <!--begin::Table-->
+                            <div class="table-responsive">
+                                <table class="table table-head-custom table-head-bg table-borderless table-vertical-center" id="itemList">
+                                    <thead>
+                                        <tr>
+                                            <th style="min-width: 200px">Şube Adı</th>
+                                            <th style="min-width: 200px">Adres</th>
+                                            <th style="min-width: 200px">Telefon</th>
+                                            <th style="min-width: 200px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--end::Table-->
+                        </div>
+                    </div>
+                    <!--end::Body-->
+
+                </div>
+                <!--end::Advance Table Widget 4-->
+            </div>
+        </div>
+        <!--end::Row-->
+        <!--end::Dashboard-->
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Entry-->
+<!-- Save Store-->
+<div class="modal fade" id="stationSaveModel" data-backdrop="static" tabindex="-1" aria-labelledby="stationSaveModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Şube İşlemleri</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="stationSaveForm">
+
+                    <div class="form-group">
+                        <label>Şube Adı</label>
+                        <input type="text" class="form-control" placeholder="Şube Adını Giriniz..." name="storeName" id="storeName" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <input type="text" class="form-control" placeholder="Adres Giriniz..." name="address" id="address" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input type="text" class="form-control" placeholder="Telefon Giriniz..." name="phone" id="phone" />
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+                <button type="button" id="saveBtn" onclick="addItem()" class="btn btn-primary">Kaydet</button>
+@*                <button type="button" id="updateBtn" onclick="updateItem()" class="btn btn-primary">Güncelle</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+

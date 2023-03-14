@@ -35,7 +35,7 @@ $(document).ready(function () {
         "processing": "true",
         "info": "false",
         "language": {
-            "processing": "Lütfen beyleyin...",
+            "processing": "Lütfen bekleyin...",
             //"lengthMenu": "Sayfada _MENU_ kayıt gösteriliyor",
             "zeroRecords": "Eşleşen kayıt bulunamadı",
             "info": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",

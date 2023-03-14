@@ -11,6 +11,7 @@ namespace FoodBox.Data
         private ProductRepository _productRepository;
         private StoreRepository _storeRepository;
         private StoreProductRepository _storeProductRepository;
+        private StoreUserRepository _storeUserRepository;
 
         public UnitOfWork(FoodBoxDbContext context)
         {
@@ -20,6 +21,7 @@ namespace FoodBox.Data
         public IStoreProductRepository StoreProducts => _storeProductRepository ?? new StoreProductRepository(_context);
         public IProductRepository Products => _productRepository = _productRepository ?? new ProductRepository(_context);
         public IStoreRepository Stores => _storeRepository = _storeRepository ?? new StoreRepository(_context);
+        public IStoreUserRepository StoreUsers => _storeUserRepository = _storeUserRepository ?? new StoreUserRepository(_context);
 
         public async Task<int> CommitAsync()
         {

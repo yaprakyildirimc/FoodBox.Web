@@ -1,6 +1,5 @@
 ﻿using FoodBox.Core.Services;
 using FoodBox.Web.Models;
-using FoodBox.Core.Services;
 using FoodBox.Web.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

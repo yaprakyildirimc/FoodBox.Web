@@ -1,0 +1,111 @@
+﻿@{
+	Layout = "_Layout";
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
+
+@section Scripts
+	{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="~/admin/customJs/product.js"></script>
+}
+
+<input type="hidden" id="path" value="product" data-columnTitle="productCode,productName,brand,stock,id" />
+<!--begin::Entry-->
+<div class="d-flex flex-column-fluid">
+	<!--begin::Container-->
+	<div class="container-fluid">
+
+		<!--begin::Dashboard-->
+		<!--begin::Row-->
+
+		<div class="row">
+			<div class="col-lg-12">
+				<!--begin::Advance Table Widget 4-->
+				<div class="card card-custom card-stretch gutter-b">
+					<!--begin::Header-->
+					<div class="card-header border-0 py-5">
+						<h3 class="card-title align-items-start flex-column">
+							<span class="card-label font-weight-bolder text-dark">Ürünler</span>
+							<br />
+							<button style="margin-left:10px;" type="button" class="btn btn-success" data-toggle="modal" data-target="#sackSaveModel" onclick="reverseModal()">Ürün Ekle</button>
+						</h3>
+					</div>
+					<!--end::Header-->
+					<!--begin::Body-->
+					<div class="card-body pt-0 pb-3">
+						<div class="tab-content">
+							<!--begin::Table-->
+							<div class="table-responsive">
+								<table class="table table-head-custom table-head-bg table-borderless table-vertical-center" id="itemList">
+									<thead>
+										<tr>
+											<th style="min-width: 200px">Ürün Kodu</th>
+											<th style="min-width: 200px">Ürün Adı</th>
+											<th style="min-width: 200px">Marka</th>
+											<th style="min-width: 200px">Stok</th>
+											<th style="min-width: 200px"></th>
+										</tr>
+									</thead>
+									<tr>
+										<td></td>
+									</tr>
+								</table>
+							</div>
+							<!--end::Table-->
+						</div>
+					</div>
+					<!--end::Body-->
+
+				</div>
+				<!--end::Advance Table Widget 4-->
+			</div>
+		</div>
+		<!--end::Row-->
+		<!--end::Dashboard-->
+	</div>
+	<!--end::Container-->
+</div>
+<!--end::Entry-->
+<!-- Save Product-->
+<div class="modal fade" id="sackSaveModel" data-backdrop="static" tabindex="-1" aria-labelledby="sackSaveModelLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Ürün İşlemleri</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form id="sackSaveForm">
+
+					<div class="form-group">
+						<label>Ürün Kodu</label>
+						<input type="text" class="form-control" placeholder="Ürün Kodunu Giriniz..." name="productCode" id="productCode" />
+					</div>
+					<div class="form-group">
+						<label>Ürün Adı</label>
+						<input type="text" class="form-control" placeholder="Ürün Adı Giriniz..." name="productName" id="productName" />
+					</div>
+					<div class="form-group">
+						<label>Marka </label>
+						<input type="text" class="form-control" placeholder="Marka Giriniz..." name="brand" id="brand" />
+					</div>
+					<div class="form-group">
+						<label>Stok </label>
+						<input type="text" class="form-control" placeholder="Stok Giriniz..." name="stock" id="stock" />
+					</div>
+					<div class="form-group">
+						<label>Tarih Giriniz...</label>
+						<input type="datetime" class="form-control" placeholder="Tarih Giriniz..." name="createdDate" id="createdDate" />
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+				<button type="button" id="saveBtn" onclick="addItem()" class="btn btn-primary">Kaydet</button>
+@*				<button type="button" id="updateBtn" onclick="updateItem()" class="btn btn-primary">Güncelle</button>*@
+			</div>
+		</div>
+	</div>
+</div>

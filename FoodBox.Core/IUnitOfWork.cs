@@ -9,7 +9,7 @@ namespace FoodBox.Core
         IProductRepository Products { get; }
         IStoreProductRepository StoreProducts { get; }
         IStoreRepository Stores { get; }
-
+        IStoreUserRepository StoreUsers { get; }
         Task<int> CommitAsync();
     }
 }
