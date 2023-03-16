@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodBox.Data.Migrations
 {
     [DbContext(typeof(FoodBoxDbContext))]
-    [Migration("20230314105408_testk")]
-    partial class testk
+    [Migration("20230316102735_testing")]
+    partial class testing
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

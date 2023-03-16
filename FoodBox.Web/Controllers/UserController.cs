@@ -26,7 +26,7 @@ namespace FoodBox.Web.Controllers
 		public async Task<IActionResult> Logout()
 		{
 			await _signInManager.SignOutAsync();
-			return RedirectToAction("Login", "Users");
+			return RedirectToAction("Login", "User");
 		}
 
 		[HttpGet]
